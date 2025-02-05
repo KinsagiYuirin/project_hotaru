@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class toggleInteract : MonoBehaviour
 {
@@ -6,11 +8,16 @@ public class toggleInteract : MonoBehaviour
     private bool canInteract = false;
     private bool isRed = false;
     private Color originalColor;
+    [SerializeField] TMP_Text interactText;
 
     void Start()
     {
         objectRenderer = GetComponent<Renderer>();
         originalColor = objectRenderer.material.color;
+        if (interactText != null)
+        {
+            interactText.gameObject.SetActive(false);
+        }
     }
 
     void Update()
@@ -34,6 +41,11 @@ public class toggleInteract : MonoBehaviour
             if (other.CompareTag("Player"))
             {
                 canInteract = true;
+                if (interactText != null)
+                {
+                    interactText.text = "Press E to Interact";
+                    interactText.gameObject.SetActive(true);
+                }
             }
         }
     
@@ -42,6 +54,11 @@ public class toggleInteract : MonoBehaviour
             if (other.CompareTag("Player"))
             {
                 canInteract = false;
+                if (interactText != null)
+                {
+                    interactText.gameObject.SetActive(false);
+                }
             }
         }
 }
+
