@@ -3,6 +3,7 @@ using UnityEngine;
 public class mainControl : MonoBehaviour
 {
     public float moveSpeed = 5f;
+    public float sprintSpeed = 8f;
     public float jumpForce = 7f;
     private Rigidbody rb;
     private bool isGrounded;
@@ -16,7 +17,8 @@ public class mainControl : MonoBehaviour
     {
         // การควบคุมการเคลื่อนที่
         float moveInput = Input.GetAxis("Horizontal");
-        rb.linearVelocity = new Vector3(moveInput * moveSpeed, rb.linearVelocity.y, 0);
+        float currentSpeed = Input.GetKey(KeyCode.LeftShift) ? sprintSpeed : moveSpeed;
+        rb.linearVelocity = new Vector3(moveInput * currentSpeed, rb.linearVelocity.y, 0);
         
         // การกระโดด
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
