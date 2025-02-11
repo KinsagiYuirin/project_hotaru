@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class mainControl : MonoBehaviour
+public class MainControl : MonoBehaviour
 {
     public float moveSpeed = 5f;
     public float sprintSpeed = 8f;

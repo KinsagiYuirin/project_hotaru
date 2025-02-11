@@ -1,29 +1,35 @@
 using UnityEngine;
 
-public class gameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public GameObject[] lights;
-    private getFirefly Firefly1;
+    [SerializeField] private GameObject[] lights;
+    [SerializeField] private GetFirefly _firefly;
     void Start()
     {
-        if (lights != null)
-        {
-            foreach (GameObject light in lights)
-            {
-                light.gameObject.SetActive(false); // ปิดไฟทุกตัวเมื่อเริ่มเกม
-            }
-        }
+        CloseLight();
     }
 
     void Update()
     {
-        if (Firefly1 == true)
+        if (_firefly.Firefly1)
         {
-            foreach (GameObject light in lights)
-            {
-                light.gameObject.SetActive(true); // เปิดไฟทั้งหมด
-                Debug.Log("Turn on light");
-            }
+            OpenLight();
+        }
+    }
+    
+    private void OpenLight()
+    {
+        for (int i = 0; i < lights.Length; i++)
+        {
+            lights[i].gameObject.SetActive(true); // เปิดไฟทั้งหมด
+        }
+    }
+    
+    private void CloseLight()
+    {
+        for (int i = 0; i < lights.Length; i++)
+        {
+            lights[i].gameObject.SetActive(false); // เปิดไฟทั้งหมด
         }
     }
 }

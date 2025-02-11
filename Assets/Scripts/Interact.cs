@@ -1,62 +1,74 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class Interact : MonoBehaviour
 {
-    
     private bool canInteract = false;
     public bool CanInteract => canInteract;
-    [SerializeField] TMP_Text interactText;
-
-    void Start()
-    {
-        
-        if (interactText != null)
-        {
-            interactText.gameObject.SetActive(false);
-            Debug.Log("interactText is not null");
-        }
-    }
-
-    void Update()
-    {
-        
-        if (canInteract && Input.GetKeyDown(KeyCode.E))
-        {
-            //interact();
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-        {
-            if (other.CompareTag("Player"))
-            {
-                canInteract = true;
-                showText();
-            }
-        }
     
-    private void OnTriggerExit(Collider other)
-        {
-            if (other.CompareTag("Player"))
-            {
-                canInteract = false;
-                showText();
-            }
-        }
-    public virtual void showText()
+    [Header("Interact Text")]
+    [SerializeField] private TMP_Text interactText;
+
+    protected void Start()
     {
-        if (canInteract == true)
+        interactText.gameObject.SetActive(false);
+    }
+
+    protected void Update()
+    {
+        InteractObj();
+    }
+    
+    private void InteractObj()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            interactText.text = "Press E to Interact";
+            InteractAbilityObj();
+        }
+    }
+
+    protected void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            canInteract = true;
+            ShowText();
+        }
+    }
+    
+    protected void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            canInteract = false;
+            ShowText();
+        }
+    }
+    private void ShowText()
+    {
+        if (canInteract)
+        {
+            TextObj();
             interactText.gameObject.SetActive(true);
         }
         else
         {
             interactText.gameObject.SetActive(false);
-            
         }
+    }
+    
+    // Method สำหรับการแสดงข้อความ
+    protected virtual void TextObj()
+    {
+        interactText.text = "Press E to Interact";
+    }
+    
+    // Method สำหรับการทำงานเมื่อ Interact
+    protected virtual void InteractAbilityObj()
+    {
+        Debug.Log("Interacted");
     }
 }       
 

@@ -363,8 +363,8 @@ GameObject:
   - component: {fileID: 625998542}
   - component: {fileID: 625998541}
   - component: {fileID: 625998540}
-  - component: {fileID: 625998539}
   - component: {fileID: 625998544}
+  - component: {fileID: 625998539}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -813,6 +813,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lights:
   - {fileID: 1916071681}
+  _firefly: {fileID: 1606340323}
 --- !u!4 &1592905499
 Transform:
   m_ObjectHideFlags: 0
@@ -5697,7 +5698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactText: {fileID: 1982633716}
-  fireflyParticle: {fileID: 1606340321}
+  fireflyObj: {fileID: 1606340318}
 --- !u!1 &1916071681
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,22 +1,22 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class getFirefly : Interact
+public class GetFirefly : Interact
 {
-    public ParticleSystem fireflyParticle;
-    private bool firefly1;
+    
+    [Header("Firefly")]
+    [SerializeField] private GameObject fireflyObj;
+    private bool firefly1 = false;
     public bool Firefly1 => firefly1;
-
-    void Update()
+    
+    protected override void InteractAbilityObj()
     {
-        if (CanInteract && Input.GetKeyDown(KeyCode.E))
-        {
-            CollectFirefly();
-        }
+        CollectFirefly();
     }
 
     void CollectFirefly()
     {
-        fireflyParticle.gameObject.SetActive(false); // หยุด Particle
+        fireflyObj.gameObject.SetActive(false); // ซ่อน Firefly
         firefly1 = true;
         Debug.Log("Collected a firefly!");
     }

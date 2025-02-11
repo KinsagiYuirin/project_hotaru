@@ -1,11 +1,10 @@
 using UnityEngine;
 
-public class changColor : Interact
+public class ChangColor : Interact
 {
     private Renderer objectRenderer;
     private Color originalColor;
     private bool isRed = false;
-    private Interact CanInteract;
 
     private void Start()
     {
@@ -13,16 +12,7 @@ public class changColor : Interact
         originalColor = objectRenderer.material.color;
     }
     
-    void Update()
-    {
-        
-        if (CanInteract && Input.GetKeyDown(KeyCode.E))
-        {
-            changeColor();
-        }
-    }
-    
-    private void changeColor()
+    protected override void InteractAbilityObj()
     {
         if (isRed)
         {
