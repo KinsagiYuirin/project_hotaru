@@ -5,7 +5,8 @@ using TMPro;
 public class Interact : MonoBehaviour
 {
     
-    public bool canInteract = false;
+    private bool canInteract = false;
+    public bool CanInteract => canInteract;
     [SerializeField] TMP_Text interactText;
 
     void Start()
@@ -27,7 +28,7 @@ public class Interact : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
             {
@@ -36,7 +37,7 @@ public class Interact : MonoBehaviour
             }
         }
     
-    public void OnTriggerExit(Collider other)
+    private void OnTriggerExit(Collider other)
         {
             if (other.CompareTag("Player"))
             {

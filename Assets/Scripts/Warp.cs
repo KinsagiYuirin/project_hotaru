@@ -6,10 +6,11 @@ public class Warp : Interact
 {
     public Transform targetObject;
     public Transform targetPlayer;
+    private Interact CanInteract;
     
     void Update()
     {
-        if (canInteract && Input.GetKeyDown(KeyCode.E))
+        if (CanInteract && Input.GetKeyDown(KeyCode.E))
         {
             MoveToTarget();
         }

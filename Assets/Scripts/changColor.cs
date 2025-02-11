@@ -5,6 +5,7 @@ public class changColor : Interact
     private Renderer objectRenderer;
     private Color originalColor;
     private bool isRed = false;
+    private Interact CanInteract;
 
     private void Start()
     {
@@ -15,7 +16,7 @@ public class changColor : Interact
     void Update()
     {
         
-        if (canInteract && Input.GetKeyDown(KeyCode.E))
+        if (CanInteract && Input.GetKeyDown(KeyCode.E))
         {
             changeColor();
         }
