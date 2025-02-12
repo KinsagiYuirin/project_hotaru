@@ -5,11 +5,11 @@ using UnityEngine.Serialization;
 
 public class Interact : MonoBehaviour
 {
-    private bool canInteract = false;
+    private bool canInteract;
     public bool CanInteract => canInteract;
     
     [Header("Interact Text")]
-    [SerializeField] private TMP_Text interactText;
+    [SerializeField] protected TMP_Text interactText;
 
     protected void Start()
     {
@@ -23,9 +23,10 @@ public class Interact : MonoBehaviour
     
     private void InteractObj()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && canInteract)
         {
             InteractAbilityObj();
+            HideText();
         }
     }
 
@@ -43,7 +44,7 @@ public class Interact : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             canInteract = false;
-            ShowText();
+            HideText();
         }
     }
     private void ShowText()
@@ -53,7 +54,11 @@ public class Interact : MonoBehaviour
             TextObj();
             interactText.gameObject.SetActive(true);
         }
-        else
+    }
+    
+    private void HideText()
+    {
+        if (!canInteract)
         {
             interactText.gameObject.SetActive(false);
         }
@@ -68,7 +73,7 @@ public class Interact : MonoBehaviour
     // Method สำหรับการทำงานเมื่อ Interact
     protected virtual void InteractAbilityObj()
     {
-        Debug.Log("Interacted");
+        Debug.Log("Interacted!");
     }
 }       
 
