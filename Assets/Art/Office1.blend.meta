@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 829589e59f6078543aa100e9324eeaa5
+=======
+guid: c00435cc2b6699f469966f3c8481f9d6
+>>>>>>> origin/assetBG/Sound
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
