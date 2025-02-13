@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ChangColor : Interact
+public class changColor : Interact
 {
     private Renderer objectRenderer;
     private Color originalColor;

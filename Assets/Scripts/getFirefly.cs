@@ -2,7 +2,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class GetFirefly : Interact
+public class getFirefly : Interact
 {
     
     [Header("Firefly")]
