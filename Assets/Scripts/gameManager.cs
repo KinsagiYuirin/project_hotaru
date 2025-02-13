@@ -3,7 +3,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] lights;
-    [SerializeField] private GetFirefly _firefly;
+    [SerializeField] private getFirefly _firefly;
     void Start()
     {
         CloseLight();
